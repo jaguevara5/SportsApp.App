@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { GamesTodayComponent } from './games-today/games-today.component';
+import { TopNavComponent } from './ui/top-nav/top-nav.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Hola Cochinos!';
+  title = 'Welcome to the Sports App!';
 }

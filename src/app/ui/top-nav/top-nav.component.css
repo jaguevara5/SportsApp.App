@@ -1,0 +1,33 @@
+/****************************
+
+NAV BAR
+
+****************************/
+.navbar {
+    background-color: #ff9800;
+}
+.nav-menu-wrapper {
+    width: 70%;
+    padding: 0;
+}
+
+.nav-menu-wrapper ul {
+    justify-content: flex-end;
+}
+
+@media (max-width: 650px) { 
+    .nav-menu-wrapper {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .nav-menu-wrapper ul {
+        justify-content: center !important;
+    }
+
+    #brandName {
+        display: block;
+        width: 100%;
+        text-align: center 
+    }
+}

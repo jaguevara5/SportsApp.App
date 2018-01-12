@@ -1,3 +1,22 @@
-<p>
-  games-today works!
-</p>
+<div class="container">
+    <div class="d-flex flex-row">
+        <div class="col-sm games-tab" (click)="getGamesYesterday()">
+            Yesterday
+        </div>
+        <div class="col-sm games-tab" (click)="getGamesToday()">
+            Today
+        </div>
+        <div class="col-sm games-tab" (click)="getGamesTomorrow()">
+            Tomorrow
+        </div>
+    </div>
+</div>
+<div class="container" class="game-wrapper">
+    <div class="row game-item" *ngFor="let game of gamesToday; let even = even; let odd = odd"
+      [ngClass]="{ odd: odd, even: even }" id="game-{{game.gameID}}" (click)="showGameDetails($event)" routerLink="game-details">
+        <div class="col text-right">{{game.homeTeam}}</div>
+        <div class="col-3 text-center score-time" *ngIf="game.homeTeamScore">{{game.homeTeamScore}}-{{game.awayTeamScore}}</div>
+        <div class="col-3 text-center score-time" *ngIf="!game.homeTeamScore">{{game.gameTime  | utcDate | date:'shortTime'}}</div>
+        <div class="col text-left">{{game.awayTeam}}</div>
+    </div>
+</div>

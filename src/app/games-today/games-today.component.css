@@ -1,0 +1,20 @@
+.games-tab {
+    color: #ff9800;
+    text-align: center;
+    padding: 15px 0;
+    cursor: pointer;
+}
+
+.score-time {
+    padding: 0 10px;
+    font-weight: bold;
+}
+
+.game-item {
+    padding: 20px 0;
+    margin: 0;
+}
+
+.even {
+    background-color: #e0e0e0;
+}

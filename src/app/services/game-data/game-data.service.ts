@@ -6,9 +6,11 @@ export class GameDataService {
 
   private gameDataSource = new BehaviorSubject<any>({});
   private gamesDataListSource = new BehaviorSubject<any[]>([]);
+  private gameDateIdSource = new BehaviorSubject<number>(1);
 
   currentGameData = this.gameDataSource.asObservable();
   currentGamesList = this.gamesDataListSource.asObservable();
+  currentgameDateId = this.gameDateIdSource.asObservable();
 
   constructor() { }
 
@@ -18,5 +20,9 @@ export class GameDataService {
 
   updateGamesList(gamesList: any[]) {
     this.gamesDataListSource.next(gamesList);
+  }
+
+  updateGameDateId(gameDateId: number) {
+    this.gameDateIdSource.next(gameDateId);
   }
 }

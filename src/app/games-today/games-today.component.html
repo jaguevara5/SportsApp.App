@@ -1,12 +1,12 @@
 <div class="container">
     <div class="d-flex flex-row">
-        <div class="col-sm games-tab" (click)="getGamesYesterday()">
+        <div class="col-sm games-tab" (click)="getGamesYesterday()" [ngClass]="getYesterdayTabColor()">
             Yesterday
         </div>
-        <div class="col-sm games-tab" (click)="getGamesToday()">
+        <div class="col-sm games-tab" (click)="getGamesToday()" [ngClass]="getTadayTabColor()">
             Today
         </div>
-        <div class="col-sm games-tab" (click)="getGamesTomorrow()">
+        <div class="col-sm games-tab" (click)="getGamesTomorrow()" [ngClass]="getTomorrowTabColor()">
             Tomorrow
         </div>
     </div>

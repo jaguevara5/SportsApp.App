@@ -9,13 +9,15 @@ import { GameDataService } from '../services/game-data/game-data.service';
 export class GameDetailsComponent implements OnInit {
 
   private gameData: any;
+  private gameDateId: number;
 
   constructor(
-    private gameIdData: GameDataService
+    private gameDataService: GameDataService
   ) { }
 
   ngOnInit() {
-    this.gameIdData.currentGameData.subscribe(gameData => this.gameData = gameData);
+    this.gameDataService.currentGameData.subscribe(gameData => this.gameData = gameData);
+    this.gameDataService.currentgameDateId.subscribe(gameDateId => this.gameDateId = gameDateId);
   }
 
 }

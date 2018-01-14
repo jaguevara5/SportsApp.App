@@ -3,11 +3,11 @@ import { GamesService } from '../services/games-service/games.service';
 import { GameDataService } from '../services/game-data/game-data.service';
 
 @Component({
-  selector: 'app-games-today',
-  templateUrl: './games-today.component.html',
-  styleUrls: ['./games-today.component.css']
+  selector: 'app-games',
+  templateUrl: './games.component.html',
+  styleUrls: ['./games.component.css']
 })
-export class GamesTodayComponent implements OnInit {
+export class GamesComponent implements OnInit {
 
   private gamesList: any[];
   private gameData: any;

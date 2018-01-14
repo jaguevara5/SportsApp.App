@@ -12,7 +12,7 @@
     </div>
 </div>
 <div class="container" class="game-wrapper">
-    <div class="row game-item" *ngFor="let game of gamesToday; let even = even; let odd = odd"
+    <div class="row game-item" *ngFor="let game of gamesList; let even = even; let odd = odd"
       [ngClass]="{ odd: odd, even: even }" id="game-{{game.gameID}}" (click)="showGameDetails($event)" routerLink="game-details">
         <div class="col text-right">{{game.homeTeam}}</div>
         <div class="col-3 text-center score-time" *ngIf="game.homeTeamScore">{{game.homeTeamScore}}-{{game.awayTeamScore}}</div>

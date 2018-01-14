@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GameIdService } from '../services/game-id/game-id.service';
+import { GameDataService } from '../services/game-data/game-data.service';
 
 @Component({
   selector: 'app-game-details',
@@ -8,14 +8,14 @@ import { GameIdService } from '../services/game-id/game-id.service';
 })
 export class GameDetailsComponent implements OnInit {
 
-  private gameId: any;
+  private gameData: any;
 
   constructor(
-    private gameIdData: GameIdService
+    private gameIdData: GameDataService
   ) { }
 
   ngOnInit() {
-    this.gameIdData.currentGameId.subscribe(gameId => this.gameId = gameId);
+    this.gameIdData.currentGameData.subscribe(gameData => this.gameData = gameData);
   }
 
 }

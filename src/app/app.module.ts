@@ -11,7 +11,7 @@ import { TopNavComponent } from './ui/top-nav/top-nav.component';
 import { GamesYesterdayComponent } from './games-yesterday/games-yesterday.component';
 import { GamesTomorrowComponent } from './games-tomorrow/games-tomorrow.component';
 import { GameDetailsComponent } from './game-details/game-details.component';
-import { GameIdService } from './services/game-id/game-id.service';
+import { GameDataService } from './services/game-data/game-data.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { GameIdService } from './services/game-id/game-id.service';
     routing,
     HttpModule
   ],
-  providers: [GamesService, GameIdService],
+  providers: [GamesService, GameDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

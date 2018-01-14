@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GamesService } from '../services/games-service/games.service';
-import { GameIdService } from '../services/game-id/game-id.service';
+import { GameDataService } from '../services/game-data/game-data.service';
 
 @Component({
   selector: 'app-games-today',
@@ -9,25 +9,27 @@ import { GameIdService } from '../services/game-id/game-id.service';
 })
 export class GamesTodayComponent implements OnInit {
 
-  private gamesToday: string[];
-  private gameId: number;
+  private gamesList: any[];
+  private gameData: any;
 
   constructor(
     private gamesService: GamesService,
-    private gameIdData: GameIdService
+    private gameDataService: GameDataService
   ) {}
 
   ngOnInit() {
-    this.getGamesToday();
-    this.gameIdData.currentGameId.subscribe(gameId => this.gameId = gameId);
+    if (!this.gamesList) {
+      this.getGamesToday();
+    }
+    // this.getGamesToday();
+    this.gameDataService.currentGameData.subscribe(gameData => this.gameData = gameData);
+    this.gameDataService.currentGamesList.subscribe(gamesList => this.gamesList = gamesList);
   }
 
   getGamesToday() {
     this.gamesService.getGamesAPI('today')
     .subscribe(
-      data => {
-        this.gamesToday  = data;
-      },
+      data => this.gameDataService.updateGamesList(data),
       error => console.log('Server Error')
     );
   }
@@ -35,7 +37,7 @@ export class GamesTodayComponent implements OnInit {
   getGamesYesterday() {
     this.gamesService.getGamesAPI('yesterday')
     .subscribe(
-      data => this.gamesToday  = data,
+      data => this.gameDataService.updateGamesList(data),
       error => console.log('Server Error')
     );
   }
@@ -43,10 +45,7 @@ export class GamesTodayComponent implements OnInit {
   getGamesTomorrow() {
     this.gamesService.getGamesAPI('tomorrow')
     .subscribe(
-      data => {
-        this.gamesToday  = data;
-        console.log(this.gamesToday);
-      },
+      data => this.gameDataService.updateGamesList(data),
       error => console.log('Server Error')
     );
   }
@@ -54,6 +53,10 @@ export class GamesTodayComponent implements OnInit {
   showGameDetails(event) {
     const gameElementId: string = event.currentTarget.id;
     const idStringArray: string[] = gameElementId.split('-');
-    this.gameIdData.updateGameId(parseInt(idStringArray[1], 10));
+    const gameId = parseInt(idStringArray[1], 10);
+    const gameData = this.gamesList.find((game) => {
+      return game.gameID === gameId;
+    });
+    this.gameDataService.updateGameData(gameData);
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GamesTodayComponent } from './games-today/games-today.component';
+import { GamesComponent } from './games/games.component';
 import { TopNavComponent } from './ui/top-nav/top-nav.component';
 
 @Component({

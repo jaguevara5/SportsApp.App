@@ -18,4 +18,10 @@ export class GamesService {
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || ' Server Error '));
   }
+
+  getGameByIdAPI(gameId: string) {
+    return this.http.get('http://ec2-18-216-8-223.us-east-2.compute.amazonaws.com/api/game/' + gameId)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || ' Server Error '));
+  }
 }

@@ -10,6 +10,7 @@ import { UtcDatePipe } from './pipes/utc-date-pipe';
 import { TopNavComponent } from './ui/top-nav/top-nav.component';
 import { GameDetailsComponent } from './game-details/game-details.component';
 import { GameDataService } from './services/game-data/game-data.service';
+import { LeaguesComponent } from './leagues/leagues.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { GameDataService } from './services/game-data/game-data.service';
     GamesComponent,
     UtcDatePipe,
     TopNavComponent,
-    GameDetailsComponent
+    GameDetailsComponent,
+    LeaguesComponent
   ],
   imports: [
     BrowserModule,

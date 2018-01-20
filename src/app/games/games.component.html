@@ -15,8 +15,8 @@
     <div class="row game-item" *ngFor="let game of gamesList; let even = even; let odd = odd"
       [ngClass]="{ odd: odd, even: even }" id="game-{{game.gameID}}" (click)="showGameDetails($event)" routerLink="game-details">
         <div class="col text-right">{{game.homeTeam}}</div>
-        <div class="col-3 text-center score-time" *ngIf="game.homeTeamScore">{{game.homeTeamScore}}-{{game.awayTeamScore}}</div>
-        <div class="col-3 text-center score-time" *ngIf="!game.homeTeamScore">{{game.gameTime  | utcDate | date:'shortTime'}}</div>
+        <div class="col-3 text-center score-time" *ngIf="game.homeTeamScore !== null">{{game.homeTeamScore}}-{{game.awayTeamScore}}</div>
+        <div class="col-3 text-center score-time" *ngIf="game.homeTeamScore === null">{{game.gameTime  | utcDate | date:'shortTime'}}</div>
         <div class="col text-left">{{game.awayTeam}}</div>
     </div>
 </div>

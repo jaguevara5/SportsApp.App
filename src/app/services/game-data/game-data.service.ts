@@ -4,18 +4,18 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 @Injectable()
 export class GameDataService {
 
-  private gameDataSource = new BehaviorSubject<any>({});
   private gamesDataListSource = new BehaviorSubject<any[]>([]);
+  private gameDataIdSource = new BehaviorSubject<string>('-1');
   private gameDateIdSource = new BehaviorSubject<number>(1);
 
-  currentGameData = this.gameDataSource.asObservable();
+  currentGameDataId = this.gameDataIdSource.asObservable();
   currentGamesList = this.gamesDataListSource.asObservable();
   currentgameDateId = this.gameDateIdSource.asObservable();
 
   constructor() { }
 
-  updateGameData(gameData: any) {
-    this.gameDataSource.next(gameData);
+  updateGameDataId(gameId: string) {
+    this.gameDataIdSource.next(gameId);
   }
 
   updateGamesList(gamesList: any[]) {

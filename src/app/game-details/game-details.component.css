@@ -1,0 +1,58 @@
+.details-wrapper {
+    padding: 20px;
+}
+
+.teams-score-wrapper {
+    background-color: #484848;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.button-wrapper {
+    text-align: center; 
+}
+
+.btn-outline-primary {
+    color: #ff9800;
+    border-color: #ff9800;
+    cursor: pointer;
+}
+
+.btn-outline-primary:active:focus {
+    color: #fff;
+    border-color: #ff9800;
+    background-color: #ff9800;
+    box-shadow: none;
+}
+.btn-outline-primary:hover {
+    color: #fff;
+    border-color: #ff9800;
+    background-color: #ff9800;
+}
+
+.x-small-letters {
+    font-size: 0.8em;
+    color: #e0e0e0;
+}
+
+.big-letters {
+    font-size: 1.8em;
+}
+
+.vertical-center {
+    margin: auto 0;
+}
+
+.details-bold {
+    flex: 0 0 100px;
+    font-weight: bold;
+}
+@media (max-width: 650px) { 
+    .x-small-letters {
+        font-size: 0.8em;
+    }
+
+    .big-letters {
+        font-size: 1.6em;
+    }
+}

@@ -10,6 +10,9 @@ import { UtcDatePipe } from './pipes/utc-date-pipe';
 import { TopNavComponent } from './ui/top-nav/top-nav.component';
 import { GameDetailsComponent } from './game-details/game-details.component';
 import { GameDataService } from './services/game-data/game-data.service';
+import { LeaguesComponent } from './leagues/leagues.component';
+import { LeaguesService } from './services/leagues-service/leagues.service';
+import { ServerNameService } from './services/server-name/server-name.service';
 
 @NgModule({
   declarations: [
@@ -17,14 +20,15 @@ import { GameDataService } from './services/game-data/game-data.service';
     GamesComponent,
     UtcDatePipe,
     TopNavComponent,
-    GameDetailsComponent
+    GameDetailsComponent,
+    LeaguesComponent
   ],
   imports: [
     BrowserModule,
     routing,
     HttpModule
   ],
-  providers: [GamesService, GameDataService],
+  providers: [GamesService, GameDataService, LeaguesService, ServerNameService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

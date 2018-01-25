@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Oswald');
+
+body {
+    font-size: 0.8em;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.h2-wrapper {
+    padding: 10px 0;
+    border-bottom: 2px solid #ff9800;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    margin: 15px 0;
+}
+
+.mobile {
+    display: block;
+}
+
+.desktop {
+    display: none;
+}
+
+@media only screen and (min-width: 600px)  {
+    .games-wrapper {
+        padding: 0 15%;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+    .desktop {
+        display: block;
+    }
+}

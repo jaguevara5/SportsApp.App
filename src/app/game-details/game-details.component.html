@@ -1,45 +1,39 @@
-<!-- <p>
-  Home Team: {{gameData.homeTeam}}
-</p>
-<p>
-  Away Team: {{gameData.awayTeam}}
-</p>
-<p>
-  Stadium: {{gameData.stadium}}
-</p>
-<p style="color: white; background-color:#ff9800; padding: 5px 10px" routerLink="">
-  Back
-</p> -->
+<div class="row">
+  <app-leagues class="col desktop"></app-leagues>
+  <div class="col">
+      <div class="h2-wrapper details-heading">
+          <h2>Details</h2>
+      </div>
+      <div class="container" class="teams-score-wrapper">
+          <div class="row">
+              <div class="col small-letters vertical-center text-right">{{gameData.homeTeam}} ({{gameData.gender}})</div>
+              <div class="col-2 text-center big-letters">{{gameData.homeTeamScore}} - {{gameData.awayTeamScore}}</div>
+              <!-- <div class="col text-center big-letters">2 - 1</div> -->
+              <div class="col small-letters vertical-center text-left">{{gameData.awayTeam}} ({{gameData.gender}})</div>
+          </div>
+      </div>
+      <div class="container-fluid details-wrapper">
+          <div class="row">
+            <div class="col details-bold">League:</div><div class="col-6">{{gameData.league}}</div> 
+          </div>
+          <div class="row">
+            <div class="col details-bold">Sport:</div><div class="col-6">{{gameData.sport}}</div>
+          </div>
+          <div class="row">
+            <div class="col details-bold">Season:</div><div class="col-6">{{gameData.season}}</div>
+          </div>
+          <div class="row">
+            <div class="col details-bold">Time:</div><div class="col-6">{{gameData.gameTime  | utcDate | date:'shortTime'}}</div>
+          </div>
+          <div class="row">
+            <div class="col details-bold">Statium:</div><div class="col-6">{{gameData.stadium}}</div>
+          </div>
+      </div>
+      <div class="button-wrapper">
+          <button type="button" class="btn btn-outline-primary" routerLink="">Home</button>
+      </div>
+      <app-leagues class="col mobile"></app-leagues>
+  </div>
+</div>
 
-<div class="container" class="teams-score-wrapper">
-    <div class="row">
-        <div class="col small-letters vertical-center text-right">{{gameData.homeTeam}} ({{gameData.gender}})</div>
-        <div class="col-2 text-center big-letters">{{gameData.homeTeamScore}} - {{gameData.awayTeamScore}}</div>
-        <!-- <div class="col text-center big-letters">2 - 1</div> -->
-        <div class="col small-letters vertical-center text-left">{{gameData.awayTeam}} ({{gameData.gender}})</div>
-    </div>
-</div>
-<div class="container-fluid details-wrapper">
-    <div class="row">
-      <div class="col details-bold">District:</div><div class="col-6">{{gameData.district}}</div> 
-    </div>
-    <div class="row">
-      <div class="col details-bold">Sport:</div><div class="col-6">{{gameData.sport}}</div>
-    </div>
-    <div class="row">
-      <div class="col details-bold">Season:</div><div class="col-6">{{gameData.season}}</div>
-    </div>
-    <div class="row">
-      <div class="col details-bold">Time:</div><div class="col-6">{{gameData.gameTime  | utcDate | date:'shortTime'}}</div>
-    </div>
-    <div class="row">
-      <div class="col details-bold">Statium:</div><div class="col-6">{{gameData.stadium}}</div>
-    </div>
-    <div class="row">
-      <div class="col details-bold">District:</div><div class="col-6">{{gameData.season}}</div>
-    </div>
-</div>
-<div class="button-wrapper">
-    <button type="button" class="btn btn-outline-primary" routerLink="">Home</button>
-</div>
     

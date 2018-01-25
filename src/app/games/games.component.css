@@ -1,3 +1,7 @@
+.game-wrapper {
+    padding: 0;
+}
+
 .games-tab {
     color: #ff9800;
     text-align: center;
@@ -13,6 +17,12 @@
 .game-item {
     padding: 20px 0;
     margin: 0;
+}
+
+.league-item {
+    background-color: #e0e0e0;
+    margin: 0;
+    padding: 20px 10px;
 }
 
 .even {

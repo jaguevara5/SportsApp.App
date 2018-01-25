@@ -2,6 +2,10 @@
     padding: 20px;
 }
 
+.details-heading {
+    margin-bottom: 0;
+}
+
 .teams-score-wrapper {
     background-color: #484848;
     color: #fff;

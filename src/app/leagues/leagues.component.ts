@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LeaguesService } from '../services/leagues-service/leagues.service';
 
 @Component({
   selector: 'app-leagues',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeaguesComponent implements OnInit {
 
-  constructor() { }
+  private leaguesList: any[];
+
+  constructor(
+    private leaguesService: LeaguesService
+  ) { }
 
   ngOnInit() {
+    this.getLeagues();
   }
 
+  getLeagues() {
+    this.leaguesService.getLeaguesAPI()
+    .subscribe(
+      data => {
+        this.leaguesList = data;
+      },
+      error => console.log('Server Error')
+    );
+  }
 }

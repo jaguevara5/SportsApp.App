@@ -12,16 +12,19 @@ export class GamesComponent implements OnInit {
   private gamesList: any[];
   private gameDataId: string;
   private gameDateId: number;
+  private gameData: IGameData[];
 
   constructor(
     private gamesService: GamesService,
     private gameDataService: GameDataService
-  ) {}
+  ) {
+    this.gameData = [];
+  }
 
   ngOnInit() {
 
     this.gameDataService.currentGameDataId.subscribe(gameDataId => this.gameDataId = gameDataId);
-    this.gameDataService.currentGamesList.subscribe(gamesList => this.gamesList = gamesList);
+    // this.gameDataService.currentGamesList.subscribe(gamesList => this.gamesList = gamesList);
     this.gameDataService.currentgameDateId.subscribe(gameDateId => this.gameDateId = gameDateId);
 
     if (this.gameDateId === 1) {
@@ -37,9 +40,8 @@ export class GamesComponent implements OnInit {
     this.gameDateId = 1;
     this.gamesService.getGamesAPI('today')
     .subscribe(
-      data => {
-        this.gameDataService.updateGamesList(data);
-      },
+      // data => this.gameDataService.updateGamesList(data),
+      data => this.getGamesData(data),
       error => console.log('Server Error')
     );
   }
@@ -48,9 +50,8 @@ export class GamesComponent implements OnInit {
     this.gameDateId = 0;
     this.gamesService.getGamesAPI('yesterday')
     .subscribe(
-      data => {
-        this.gameDataService.updateGamesList(data);
-      },
+      // data => this.gameDataService.updateGamesList(data),
+      data => this.getGamesData(data),
       error => console.log('Server Error')
     );
   }
@@ -59,7 +60,8 @@ export class GamesComponent implements OnInit {
     this.gameDateId = 2;
     this.gamesService.getGamesAPI('tomorrow')
     .subscribe(
-      data => this.gameDataService.updateGamesList(data),
+      // data => this.gameDataService.updateGamesList(data),
+      data => this.getGamesData(data),
       error => console.log('Server Error')
     );
   }
@@ -72,6 +74,28 @@ export class GamesComponent implements OnInit {
     this.gameDataService.updateGameDataId(gameId);
   }
 
+  getGamesData(data: any) {
+    this.gameData = [];
+    data.forEach((game) => {
+      const leagueID = game.leagueID;
+      if (!this.gameData[leagueID]) {
+        this.gameData[leagueID] = {league: game.league, data: []};
+      }
+      this.gameData[leagueID].data.push(game);
+    });
+    console.log(this.gameData);
+  }
+
+  dataExist(data): boolean {
+
+    let exist = true;
+
+    if (!data) {
+      exist = false;
+    }
+
+    return exist;
+  }
   getYesterdayTabColor() {
     let color: string;
     color = 'light-orange';
@@ -101,4 +125,9 @@ export class GamesComponent implements OnInit {
     }
     return color;
   }
+}
+
+interface IGameData {
+  league: string;
+  data: any[];
 }

@@ -1,16 +1,15 @@
-<div class="row">
-  <app-leagues class="col desktop"></app-leagues>
-  <div class="col">
-      <div class="h2-wrapper details-heading">
-          <h2>Details</h2>
+<div class="container-fluid">
+  <div class="row no-gutters">
+    <div class="col-sm-6">
+      <div class="h2-wrapper">
+        <h2>Details</h2>
       </div>
-      <div class="container" class="teams-score-wrapper">
-          <div class="row">
-              <div class="col small-letters vertical-center text-right">{{gameData.homeTeam}} ({{gameData.gender}})</div>
-              <div class="col-2 text-center big-letters">{{gameData.homeTeamScore}} - {{gameData.awayTeamScore}}</div>
-              <!-- <div class="col text-center big-letters">2 - 1</div> -->
-              <div class="col small-letters vertical-center text-left">{{gameData.awayTeam}} ({{gameData.gender}})</div>
-          </div>
+      <div class="container teams-score-wrapper">
+        <div class="row">
+            <div class="col small-letters vertical-center text-right">{{gameData.homeTeam}} ({{gameData.gender}})</div>
+            <div class="col-2 text-center big-letters">{{gameData.homeTeamScore}} - {{gameData.awayTeamScore}}</div>
+            <div class="col small-letters vertical-center text-left">{{gameData.awayTeam}} ({{gameData.gender}})</div>
+        </div>
       </div>
       <div class="container-fluid details-wrapper">
           <div class="row">
@@ -32,8 +31,9 @@
       <div class="button-wrapper">
           <button type="button" class="btn btn-outline-primary" routerLink="">Home</button>
       </div>
-      <app-leagues class="col mobile"></app-leagues>
+    </div>
+    <div class="col-sm-6">
+      <app-leagues></app-leagues>
+    </div>
   </div>
 </div>
-
-    

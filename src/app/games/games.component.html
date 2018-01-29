@@ -1,45 +1,45 @@
-<div class="row games-wrapper">
-    <app-leagues class="col desktop"></app-leagues>
-    <div class="col">
-        <div class="container">
-            <div class="d-flex flex-row">
-                <div class="col-sm games-tab" (click)="getGamesYesterday()" [ngClass]="getYesterdayTabColor()">
-                    Yesterday
-                </div>
-                <div class="col-sm games-tab" (click)="getGamesToday()" [ngClass]="getTadayTabColor()">
-                    Today
-                </div>
-                <div class="col-sm games-tab" (click)="getGamesTomorrow()" [ngClass]="getTomorrowTabColor()">
-                    Tomorrow
-                </div>
-            </div>
-        </div>
-        <div class="container game-wrapper">
-            <div *ngIf="exists">
-
-            </div>
-            <div *ngFor="let dataItem of gameData">
-                <div *ngIf="dataExist(dataItem)">
-                    <div class="row league-item">
-                            {{dataItem.league}}
-                        </div>
-                        <!-- <div class="row game-item" *ngFor="let game of dataItem.data; let even = even; let odd = odd"
-                        [ngClass]="{ odd: odd, even: even }" id="game-{{game.gameID}}" (click)="showGameDetails($event)" routerLink="game-details"> -->
-                        <div class="row game-item" *ngFor="let game of dataItem.data" id="game-{{game.gameID}}" 
-                            (click)="showGameDetails($event)" routerLink="game-details">
-                        <div class="col text-right">{{game.homeTeam}}</div>
-                        <div class="col-3 text-center score-time" *ngIf="game.homeTeamScore !== null">{{game.homeTeamScore}}-{{game.awayTeamScore}}</div>
-                        <div class="col-3 text-center score-time" *ngIf="game.homeTeamScore === null">{{game.gameTime  | utcDate | date:'shortTime'}}</div>
-                        <div class="col text-left">{{game.awayTeam}}</div>
+<div class="row">
+    <div class="h2-wrapper">
+        <h2>Games</h2>
+    </div>
+    <div class="row games-wrapper">
+        <app-leagues class="col desktop"></app-leagues>
+        <div class="col">
+            <div class="container">
+                <div class="d-flex flex-row">
+                    <div class="col-sm games-tab" (click)="getGamesYesterday()" [ngClass]="getYesterdayTabColor()">
+                        Yesterday
+                    </div>
+                    <div class="col-sm games-tab" (click)="getGamesToday()" [ngClass]="getTadayTabColor()">
+                        Today
+                    </div>
+                    <div class="col-sm games-tab" (click)="getGamesTomorrow()" [ngClass]="getTomorrowTabColor()">
+                        Tomorrow
                     </div>
                 </div>
-                
+            </div>
+            <div class="container game-wrapper">
+                <div *ngIf="exists">
+    
+                </div>
+                <div *ngFor="let dataItem of gameData">
+                    <div *ngIf="dataExist(dataItem)">
+                        <div class="row league-item">
+                                {{dataItem.league}}
+                            </div>
+                            <!-- <div class="row game-item" *ngFor="let game of dataItem.data; let even = even; let odd = odd"
+                            [ngClass]="{ odd: odd, even: even }" id="game-{{game.gameID}}" (click)="showGameDetails($event)" routerLink="game-details"> -->
+                            <div class="row game-item" *ngFor="let game of dataItem.data" id="game-{{game.gameID}}" 
+                                (click)="showGameDetails($event)" [routerLink]="['/game-details', game.gameID]">
+                            <div class="col text-right">{{game.homeTeam}}</div>
+                            <div class="col-3 text-center score-time" *ngIf="game.homeTeamScore !== null">{{game.homeTeamScore}}-{{game.awayTeamScore}}</div>
+                            <div class="col-3 text-center score-time" *ngIf="game.homeTeamScore === null">{{game.gameTime  | utcDate | date:'shortTime'}}</div>
+                            <div class="col text-left">{{game.awayTeam}}</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        <app-leagues class="col mobile"></app-leagues>
     </div>
-    <app-leagues class="col mobile"></app-leagues>
 </div>
-
-
-
-

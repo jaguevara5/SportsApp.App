@@ -1,9 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Oswald');
 
+.leagues-options {
+    padding: 20px 0;
+}
+
 .league-item {
     padding: 10px 0;
 }
 
 .league-text {
     padding-left: 40px;
+    font-size: 1.2em;
+}
+
+.leagues-container {
+    padding: 10px 0;
+}
+
+.leagues-list {
+    padding: 20px 0;
+}
+
+.no-league-data {
+    padding: 20px;
+    font-size: 1.2em;
 }

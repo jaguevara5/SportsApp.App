@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 export class GameDataService {
 
   private gamesDataListSource = new BehaviorSubject<any[]>([]);
-  private gameDataIdSource = new BehaviorSubject<string>('-1');
+  private gameDataIdSource = new BehaviorSubject<string>('0');
   private gameDateIdSource = new BehaviorSubject<number>(1);
 
   currentGameDataId = this.gameDataIdSource.asObservable();

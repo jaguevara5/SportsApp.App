@@ -51,7 +51,9 @@ export class GamesComponent implements OnInit {
     this.gamesService.getGamesAPI('yesterday')
     .subscribe(
       // data => this.gameDataService.updateGamesList(data),
-      data => this.getGamesData(data),
+      data => {
+        this.getGamesData(data);
+      },
       error => console.log('Server Error')
     );
   }
@@ -83,7 +85,6 @@ export class GamesComponent implements OnInit {
       }
       this.gameData[leagueID].data.push(game);
     });
-    console.log(this.gameData);
   }
 
   dataExist(data): boolean {
@@ -96,6 +97,7 @@ export class GamesComponent implements OnInit {
 
     return exist;
   }
+
   getYesterdayTabColor() {
     let color: string;
     color = 'light-orange';

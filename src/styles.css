@@ -6,32 +6,44 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+select {
+    height: 32px;
+}
+
 .h2-wrapper {
-    padding: 10px 0;
+    padding: 20px 0 10px 0;
     border-bottom: 2px solid #ff9800;
     text-align: center;
     font-family: 'Oswald', sans-serif;
-    margin: 15px 0;
+    margin: 0;
 }
 
-.mobile {
-    display: block;
+.button-wrapper {
+    text-align: center; 
 }
 
-.desktop {
-    display: none;
+.btn-outline-primary {
+    color: #ff9800;
+    border-color: #ff9800;
+    cursor: pointer;
 }
 
-@media only screen and (min-width: 600px)  {
-    .games-wrapper {
-        padding: 0 15%;
-    }
+.btn-outline-primary:active:focus {
+    color: #fff;
+    border-color: #ff9800;
+    background-color: #ff9800;
+    box-shadow: none;
+}
+.btn-outline-primary:hover {
+    color: #fff;
+    border-color: #ff9800;
+    background-color: #ff9800;
+}
 
-    .mobile {
-        display: none;
-    }
-
-    .desktop {
-        display: block;
+@media only screen and (max-width: 600px)  {
+    
+    .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
     }
 }

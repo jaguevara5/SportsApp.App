@@ -2,36 +2,11 @@
     padding: 20px;
 }
 
-.details-heading {
-    margin-bottom: 0;
-}
-
 .teams-score-wrapper {
     background-color: #484848;
     color: #fff;
     padding: 20px 0;
-}
-
-.button-wrapper {
-    text-align: center; 
-}
-
-.btn-outline-primary {
-    color: #ff9800;
-    border-color: #ff9800;
-    cursor: pointer;
-}
-
-.btn-outline-primary:active:focus {
-    color: #fff;
-    border-color: #ff9800;
-    background-color: #ff9800;
-    box-shadow: none;
-}
-.btn-outline-primary:hover {
-    color: #fff;
-    border-color: #ff9800;
-    background-color: #ff9800;
+    margin: 0;
 }
 
 .x-small-letters {
@@ -51,6 +26,7 @@
     flex: 0 0 100px;
     font-weight: bold;
 }
+
 @media (max-width: 650px) { 
     .x-small-letters {
         font-size: 0.8em;

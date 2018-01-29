@@ -1,10 +1,27 @@
-<div class="container">
-    <div class="h2-wrapper">
-        <h2>Leagues</h2>
-    </div>
-    <div class="row league-item" *ngFor="let league of leaguesList; let even = even; let odd = odd"
-    [ngClass]="{ odd: odd, even: even }" >
-        <div class="col text-left league-text">{{league.league}}</div>
+
+<div class="h2-wrapper">
+    <h2>Leagues</h2>
+</div>
+<div class="row leagues-options">
+    <div class="col text-right my-auto">
+        <span><strong>Sport:</strong></span>
+    </div> 
+    <div class="col text-left my-auto">
+        <select #selectElem (change)="setNewSport(selectElem.value)">
+            <option *ngFor="let sport of sports" [value]="sport.id">
+                {{sport.name}}
+            </option>
+        </select>
     </div>
 </div>
-
+<div class="leagues-container" *ngIf="leaguesList?.length > 0">
+    <div class="league-item leagues-list"  *ngFor="let league of leaguesList" id="league-{{league.leagueID}}" 
+    (click)="showLeagueTable($event)">
+        <div class="text-left league-text">{{league.league}} ({{league.gender}})</div>
+    </div>
+</div>
+<div class="leagues-container" *ngIf="leaguesList?.length === 0">
+    <div class="no-league-data">
+        There are no leagues available for the sport selected
+    </div>
+</div>

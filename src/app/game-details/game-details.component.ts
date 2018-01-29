@@ -1,44 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { GamesService } from '../services/games-service/games.service';
-import { GameDataService } from '../services/game-data/game-data.service';
 
 @Component({
   selector: 'app-game-details',
   templateUrl: './game-details.component.html',
   styleUrls: ['./game-details.component.css']
 })
-export class GameDetailsComponent implements OnInit {
+export class GameDetailsComponent implements OnInit, OnDestroy {
 
-  private gameDataId: string;
-  private gameDateId: number;
+  private gameId: number;
+  private sub: any;
   gameData: any;
 
   constructor(
     private gamesService: GamesService,
-    private gameDataService: GameDataService
+    private activatedRoute: ActivatedRoute
   ) {
   }
 
   ngOnInit() {
-    this.gameDataService.currentGameDataId.subscribe(gameDataId => this.gameDataId = gameDataId);
-    this.gameDataService.currentgameDateId.subscribe(gameDateId => this.gameDateId = gameDateId);
+    this.sub = this.activatedRoute.params.subscribe((params: Params) => {
+      this.gameId = +params['id'];
+    });
+
     this.gameData = {
       homeTeam: '',
       awayTeam: '',
       gender: ''
     };
-    this.getGameId();
     this.getGameData();
   }
 
-  getGameId() {
-    if (localStorage.getItem('gameId')) {
-      this.gameDataService.updateGameDataId(localStorage.getItem('gameId'));
-    }
-  }
-
   getGameData() {
-    this.gamesService.getGameByIdAPI(this.gameDataId)
+    this.gamesService.getGameByIdAPI(this.gameId.toString())
     .subscribe(
       data => {
         this.gameData = data[0];
@@ -47,4 +42,7 @@ export class GameDetailsComponent implements OnInit {
     );
   }
 
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
 }

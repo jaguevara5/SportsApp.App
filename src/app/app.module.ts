@@ -13,6 +13,7 @@ import { GameDataService } from './services/game-data/game-data.service';
 import { LeaguesComponent } from './leagues/leagues.component';
 import { LeaguesService } from './services/leagues-service/leagues.service';
 import { ServerNameService } from './services/server-name/server-name.service';
+import { LeagueIdService } from './services/league-id/league-id.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { ServerNameService } from './services/server-name/server-name.service';
     routing,
     HttpModule
   ],
-  providers: [GamesService, GameDataService, LeaguesService, ServerNameService],
+  providers: [GamesService, GameDataService, LeaguesService, ServerNameService, LeagueIdService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

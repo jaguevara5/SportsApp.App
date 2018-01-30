@@ -9,8 +9,6 @@ import { GameDataService } from '../services/game-data/game-data.service';
 })
 export class GamesComponent implements OnInit {
 
-  private gamesList: any[];
-  private gameDataId: string;
   private gameDateId: number;
   private gameData: IGameData[];
 
@@ -23,8 +21,6 @@ export class GamesComponent implements OnInit {
 
   ngOnInit() {
 
-    this.gameDataService.currentGameDataId.subscribe(gameDataId => this.gameDataId = gameDataId);
-    // this.gameDataService.currentGamesList.subscribe(gamesList => this.gamesList = gamesList);
     this.gameDataService.currentgameDateId.subscribe(gameDateId => this.gameDateId = gameDateId);
 
     if (this.gameDateId === 1) {
@@ -40,7 +36,6 @@ export class GamesComponent implements OnInit {
     this.gameDateId = 1;
     this.gamesService.getGamesAPI('today')
     .subscribe(
-      // data => this.gameDataService.updateGamesList(data),
       data => this.getGamesData(data),
       error => console.log('Server Error')
     );
@@ -50,7 +45,6 @@ export class GamesComponent implements OnInit {
     this.gameDateId = 0;
     this.gamesService.getGamesAPI('yesterday')
     .subscribe(
-      // data => this.gameDataService.updateGamesList(data),
       data => {
         this.getGamesData(data);
       },
@@ -62,7 +56,6 @@ export class GamesComponent implements OnInit {
     this.gameDateId = 2;
     this.gamesService.getGamesAPI('tomorrow')
     .subscribe(
-      // data => this.gameDataService.updateGamesList(data),
       data => this.getGamesData(data),
       error => console.log('Server Error')
     );
@@ -72,8 +65,6 @@ export class GamesComponent implements OnInit {
     const gameElementId: string = event.currentTarget.id;
     const idStringArray: string[] = gameElementId.split('-');
     const gameId = idStringArray[1];
-    localStorage.setItem('gameId', gameId);
-    this.gameDataService.updateGameDataId(gameId);
   }
 
   getGamesData(data: any) {
@@ -88,13 +79,11 @@ export class GamesComponent implements OnInit {
   }
 
   dataExist(data): boolean {
-
     let exist = true;
 
     if (!data) {
       exist = false;
     }
-
     return exist;
   }
 

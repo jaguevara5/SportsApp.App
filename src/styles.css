@@ -34,6 +34,7 @@ select {
     background-color: #ff9800;
     box-shadow: none;
 }
+
 .btn-outline-primary:hover {
     color: #fff;
     border-color: #ff9800;

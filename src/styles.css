@@ -4,6 +4,18 @@
 body {
     font-size: 0.8em;
     font-family: 'Open Sans', sans-serif;
+    background-color: #eeeeee;
+    color: #000;
+}
+
+.grey-border {
+    border-bottom: 1px solid #eeeeee;
+}
+
+.no-data {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2em;
 }
 
 select {
@@ -41,10 +53,23 @@ select {
     background-color: #ff9800;
 }
 
+.card {
+    background-color: #fff;
+}
+
 @media only screen and (max-width: 600px)  {
     
     .container-fluid {
         padding-left: 0;
         padding-right: 0;
+    }
+}
+
+@media (min-width: 576px) {
+    .col-sm-6 {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 48%;
+        margin: 2% 1%;
     }
 }

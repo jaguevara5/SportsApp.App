@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="row no-gutters">
+      <div class="col-sm-6 card">
+        <div class="h2-wrapper">
+            <h2>Table</h2>
+        </div>
+        <div *ngIf="teamsList?.length > 0">
+          <table>
+              <tr class="grey-border">  
+                <th></th>
+                <th>GP</th>
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>+/-</th>
+                <th>PTS</th>
+              </tr>
+              <ng-container *ngFor="let team of teamsList">
+                  <tr class="team-row grey-border" >
+                    <td>{{team.teamName}}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+              </ng-container>
+          </table>
+        </div>
+        <div class="table-container" *ngIf="teamsList?.length === 0">
+            <div class="no-data">
+                There are no teams available for the league selected
+            </div>
+        </div>
+      </div>
+      <div class="col-sm-6 card">
+        <app-leagues></app-leagues>
+      </div>
+  </div>
+</div>
+

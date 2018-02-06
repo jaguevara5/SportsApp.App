@@ -16,8 +16,8 @@ export class LeaguesService {
 
   }
 
-  getLeaguesAPI(sportId: number): Observable<any> {
-    return this.http.get(this.serverName.getServerName() + 'api/leagues/' + sportId.toString())
+  getLeaguesAPI(sportId: string): Observable<any> {
+    return this.http.get(this.serverName.getServerName() + '/api/leagues/' + sportId)
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || ' Server Error '));
   }

@@ -1,8 +1,7 @@
-
 <div class="h2-wrapper">
     <h2>Leagues</h2>
 </div>
-<div class="row leagues-options">
+<div class="row leagues-options grey-border">
     <div class="col text-right my-auto">
         <span><strong>Sport:</strong></span>
     </div> 
@@ -15,13 +14,12 @@
     </div>
 </div>
 <div class="leagues-container" *ngIf="leaguesList?.length > 0">
-    <div class="league-item leagues-list"  *ngFor="let league of leaguesList" id="league-{{league.leagueID}}" 
-    (click)="showLeagueTable($event)">
-        <div class="text-left league-text">{{league.league}} ({{league.gender}})</div>
+    <div class="league-item leagues-list grey-border"  *ngFor="let league of leaguesList" id="league-{{league.leagueID}}">
+        <div class="text-left league-text" [routerLink]="['/table', league.leagueID]">{{league.league}} ({{league.gender}} {{league.leagueID}})</div>
     </div>
 </div>
 <div class="leagues-container" *ngIf="leaguesList?.length === 0">
-    <div class="no-league-data">
+    <div class="no-data">
         There are no leagues available for the sport selected
     </div>
 </div>

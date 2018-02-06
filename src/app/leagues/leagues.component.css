@@ -14,15 +14,9 @@
 }
 
 .leagues-container {
-    padding: 10px 0;
+    padding: 0;
 }
 
 .leagues-list {
     padding: 20px 0;
-}
-
-.no-league-data {
-    text-align: center;
-    padding: 20px;
-    font-size: 1.2em;
 }

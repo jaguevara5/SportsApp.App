@@ -33,7 +33,7 @@ export class LeaguesComponent implements OnInit {
   }
 
   getLeagues(sportId: number) {
-    this.leaguesService.getLeaguesAPI(sportId)
+    this.leaguesService.getLeaguesAPI(sportId.toString())
     .subscribe(
       data => {
         this.leaguesList = data;

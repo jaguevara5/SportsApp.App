@@ -14,6 +14,8 @@ import { LeaguesComponent } from './leagues/leagues.component';
 import { LeaguesService } from './services/leagues-service/leagues.service';
 import { ServerNameService } from './services/server-name/server-name.service';
 import { LeagueIdService } from './services/league-id/league-id.service';
+import { TableComponent } from './table/table.component';
+import { TeamsService } from './services/teams-service/teams.service';
 
 @NgModule({
   declarations: [
@@ -22,14 +24,15 @@ import { LeagueIdService } from './services/league-id/league-id.service';
     UtcDatePipe,
     TopNavComponent,
     GameDetailsComponent,
-    LeaguesComponent
+    LeaguesComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
     routing,
     HttpModule
   ],
-  providers: [GamesService, GameDataService, LeaguesService, ServerNameService, LeagueIdService],
+  providers: [GamesService, GameDataService, LeaguesService, ServerNameService, LeagueIdService, TeamsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

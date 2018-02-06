@@ -7,7 +7,7 @@ export class ServerNameService {
    }
 
   getServerName(): string {
-    return 'http://localhost:8080/';
-    // return 'http://ec2-18-216-8-223.us-east-2.compute.amazonaws.com/';
+    return 'http://localhost:8080';
+    // return 'http://ec2-18-216-8-223.us-east-2.compute.amazonaws.com';
   }
 }
